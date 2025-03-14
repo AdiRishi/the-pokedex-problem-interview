@@ -1,87 +1,64 @@
-# Welcome to React Router!
+# The Pokedex Problem
 
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+## Setup
 
 ```bash
-npm install
+pnpm install
 ```
 
-### Development
-
-Start the development server with HMR:
+To run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+## The Pokedex Problem
 
-## Building for Production
+Problem summary
 
-Create a production build:
+### Part 1
 
-```bash
-npm run build
+Provided a Pokemon javascript object structured as such:
+
+```typescript
+const bulbasaur = {
+  id: 1,
+  name: 'Bulbasaur',
+  types: ['grass'],
+  sprite: 'https://pokemon.com/pictures/bulbasaur.png',
+};
 ```
 
-## Deployment
+...create a reusable `<PokemonRow />` component (or the equivalent in your framework) that takes in `bulbasaur` as a property and renders a row with the name, id, type and sprite image
 
-### Docker Deployment
+### Part 2
 
-To build and run using Docker:
+Provided a Pokemon javascript array structured as such:
 
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+```typescript
+const pokemonArray = [
+{
+  id: 1,
+  name: "Bulbasaur",
+  types: ["grass"],
+  sprite: "https://pokemon.com/pictures/bulbasaur.png"
+}, {
+  id: 2,
+  ...
+}, ...]
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+...create a `<PokedexTable />` component that takes in the array and renders all the pokemon in that array.
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+### Part 3
 
-### DIY Deployment
+Provided a <PokemonTypeSelection /> component with the following props
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```typescript
+type PokemonTypeSelectionProps = {
+  selectedType: string | undefined;
+  selectType: (type: string | undefined) => void;
+};
 ```
 
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+...create a `<FilterablePokedexTable />` component that renders both the `<PokemonTypeSelection />` component and `<PokedexTable />` component. Make sure you only display Pokemon with the selected type!
