@@ -27,7 +27,7 @@ const bulbasaur = {
   id: 1,
   name: 'Bulbasaur',
   types: ['grass'],
-  sprite: 'https://pokemon.com/pictures/bulbasaur.png',
+  sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
 };
 ```
 
@@ -43,7 +43,7 @@ const pokemonArray = [
   id: 1,
   name: "Bulbasaur",
   types: ["grass"],
-  sprite: "https://pokemon.com/pictures/bulbasaur.png"
+  sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
 }, {
   id: 2,
   ...
