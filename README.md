@@ -1,5 +1,7 @@
 # The Pokedex Problem
 
+This repository is a base template for an interview coding problem. It is setup with React Router v7 and TypeScript.
+
 ## Setup
 
 ```bash
