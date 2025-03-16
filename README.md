@@ -1,26 +1,33 @@
 # The Pokedex Problem
 
-This repository is a base template for an interview coding problem. It is setup with React Router v7 and TypeScript.
+This is a React TypeScript project that implements a Pokémon directory (Pokédex). The project uses React Router v7.
 
-## Setup
+## Getting Started
+
+First, install the dependencies:
 
 ```bash
 pnpm install
 ```
 
-To run the development server:
+Then start the development server:
 
 ```bash
 pnpm dev
 ```
 
-## The Pokedex Problem
+## Problem Requirements
 
-Problem summary
+This project is divided into three parts, each building upon the previous one. Each part focuses on component composition and state management in React.
 
-### Part 1
+### Part 1: Create a Pokemon Row Component
 
-Provided a Pokemon javascript object structured as such:
+Create a `<PokemonRow />` component that displays information about a single Pokémon. The component should:
+
+- Accept a Pokémon object as a prop
+- Display the Pokémon's name, ID, type, and sprite (image)
+
+Example of the Pokémon object structure:
 
 ```typescript
 const bulbasaur = {
@@ -31,36 +38,53 @@ const bulbasaur = {
 };
 ```
 
-...create a reusable `<PokemonRow />` component (or the equivalent in your framework) that takes in `bulbasaur` as a property and renders a row with the name, id, type and sprite image
+### Part 2: Create a Pokemon Table Component
 
-### Part 2
+Create a `<PokedexTable />` component that:
 
-Provided a Pokemon javascript array structured as such:
+- Accepts an array of Pokémon objects as a prop
+- Renders multiple `<PokemonRow />` components to display all Pokémon in the array
+
+Example of the input array:
 
 ```typescript
 const pokemonArray = [
-{
-  id: 1,
-  name: "Bulbasaur",
-  types: ["grass"],
-  sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-}, {
-  id: 2,
-  ...
-}, ...]
+  {
+    id: 1,
+    name: 'Bulbasaur',
+    types: ['grass'],
+    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+  },
+  {
+    id: 2,
+    // ... more Pokemon objects
+  },
+];
 ```
 
-...create a `<PokedexTable />` component that takes in the array and renders all the pokemon in that array.
+### Part 3: Add Type Filtering
 
-### Part 3
+First, create a `<PokemonTypeSelection />` component that:
 
-Provided a <PokemonTypeSelection /> component with the following props
+- Allows users to select a Pokémon type (e.g., "grass", "fire", "water")
+- Implements the following TypeScript interface:
 
 ```typescript
 type PokemonTypeSelectionProps = {
-  selectedType: string | undefined;
-  selectType: (type: string | undefined) => void;
+  selectedType: string | undefined; // Currently selected Pokemon type (undefined means show all)
+  onTypeChange: (type: string | undefined) => void; // Callback function when type selection changes
 };
 ```
 
-...create a `<FilterablePokedexTable />` component that renders both the `<PokemonTypeSelection />` component and `<PokedexTable />` component. Make sure you only display Pokemon with the selected type!
+Then, create a `<FilterablePokedexTable />` component that:
+
+- Combines your `<PokemonTypeSelection />` and `<PokedexTable />` components
+- Uses the type selector to filter the Pokémon list
+- Only shows Pokémon that match the selected type
+- Shows all Pokémon when no type is selected (undefined)
+
+Think about:
+
+- Where should the filtering logic live?
+- How will the components communicate with each other?
+- How will you handle the state of the selected type?
