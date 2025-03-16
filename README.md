@@ -71,8 +71,8 @@ First, create a `<PokemonTypeSelection />` component that:
 
 ```typescript
 type PokemonTypeSelectionProps = {
-  selectedType: string | undefined; // Currently selected Pokemon type (undefined means show all)
-  onTypeChange: (type: string | undefined) => void; // Callback function when type selection changes
+  selectedType: string | undefined;
+  onTypeChange: (type: string | undefined) => void;
 };
 ```
 
