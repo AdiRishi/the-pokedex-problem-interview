@@ -1,5 +1,7 @@
 # The Pokedex Problem
 
+![Sample Pokedex Screenshot](sample-screenshot.png)
+
 This is a React TypeScript project that implements a Pokémon directory (Pokédex). The project uses React Router v7.
 
 ## Getting Started
